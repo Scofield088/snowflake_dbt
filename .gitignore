@@ -14,3 +14,4 @@ Thumbs.db
 .venv/
 .env
 __pycache__/
+dbt_internal_packages/

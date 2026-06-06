@@ -9,6 +9,7 @@ models:
         tests:
           - unique
           - not_null
+
       - name: customer_id
         description: "Natural key."
         tests:
@@ -23,8 +24,10 @@ models:
         tests:
           - unique
           - not_null
+
       - name: payment_status
         description: "Standardized payment status."
         tests:
           - accepted_values:
-              values: ['COMPLETED', 'PENDING', 'FAILED', 'UNKNOWN']
+              arguments:
+                values: ['COMPLETED', 'PENDING', 'FAILED', 'UNKNOWN']
