@@ -1,0 +1,43 @@
+# Name of the project
+name: 'dbt_medallion_project'
+version: '1.0.0'
+config-version: 2
+
+# Profile defined in profiles.yml
+profile: 'snowflake_profile'
+
+# Assets configuration
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  dbt_medallion_project:
+    +materialized: view
+    
+    # Staging Layer: light touch cleansing, castings and renames. Views.
+    staging:
+      +schema: staging
+      +materialized: view
+      
+    # Intermediate Layer: complex transformations and joins. Ephemeral or Views.
+    intermediate:
+      +schema: intermediate
+      +materialized: view
+
+    # Marts Layer: business-facing fact and dimension tables. Tables.
+    marts:
+      +schema: marts
+      +materialized: table
+      
+    # Utilities: helper models.
+    utilities:
+      +schema: utilities
+      +materialized: view

@@ -1,0 +1,9 @@
+customer_id,customer_name,email,city,country
+C001,John Doe,john.doe@gmail.com,New York,USA
+C002,jane smith,jane.smith@yahoo.com,London,UK
+C003,Alice Johnson,alice.j@outlook.com,Paris,France
+C004,bob brown,bob.brown@gmail.com,Berlin,Germany
+C005,Charlie Green,charlie.g@gmail.com,Toronto,Canada
+C006,David Miller,david.m@gmail.com,Sydney,Australia
+C007,Eva White,,Tokyo,Japan
+C002,jane smith,jane.smith@yahoo.com,London,UK

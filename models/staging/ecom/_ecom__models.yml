@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_ecom__orders
+    description: "Staged orders from e-commerce transaction tables. Column types casted and audit metadata appended."
+    columns:
+      - name: order_id
+        description: "Primary key for orders. Duplicate order entries may exist here prior to deduplication."
+        tests:
+          - not_null
+
+      - name: customer_id
+        description: "Foreign key linking customer table records."
+        tests:
+          - not_null
+
+      - name: product_id
+        description: "Foreign key linking product catalog records."
+        tests:
+          - not_null
+
+  - name: stg_ecom__customers
+    description: "Staged customer list detailing emails and demographics."
+    columns:
+      - name: customer_id
+        description: "Primary key for customer records."
+        tests:
+          - not_null
+
+  - name: stg_ecom__products
+    description: "Staged product catalog listing brands and categories."
+    columns:
+      - name: product_id
+        description: "Primary key for products."
+        tests:
+          - unique
+          - not_null

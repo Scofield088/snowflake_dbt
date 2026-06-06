@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: orders
+    description: "Finance order reporting database, matching customer profile fields to line transactions."
+    columns:
+      - name: order_key
+        description: "Surrogate key for the order-line grain."
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Customer identifier."
+        tests:
+          - relationships:
+              to: ref('customers')
+              field: customer_id
+
+  - name: sales_summary
+    description: "Daily reporting view aggregating sales transaction metrics."
+    columns:
+      - name: sales_day
+        description: "Transaction date."
+        tests:
+          - unique
+          - not_null

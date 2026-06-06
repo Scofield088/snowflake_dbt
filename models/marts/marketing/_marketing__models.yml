@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: customers
+    description: "Marketing database detailing customer details and aggregated lifecycle metrics (first purchase, order count, CLV)."
+    columns:
+      - name: customer_key
+        description: "Surrogate key uniquely identifying the customer."
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Natural key."
+        tests:
+          - unique
+          - not_null
+      - name: customer_lifetime_value
+        description: "Total spend aggregate of this customer."

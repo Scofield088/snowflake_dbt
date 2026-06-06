@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: ecom
+    database: "{{ target.database }}"
+    schema: "{{ target.schema }}"
+    description: "Raw e-commerce transactional database source (simulated via dbt seeds)."
+    tables:
+      - name: raw_orders
+        description: "Raw order transactions from customer orders."
+      - name: raw_customers
+        description: "Raw customer user details."
+      - name: raw_products
+        description: "Raw product catalog mapping category and brand."
